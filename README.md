@@ -7,6 +7,9 @@ Creating estimated numbers of the currently infected, susceptible and recovered 
 1) Run findMinCost.m to produce the best beta and gamma values for the global data (min_b and min_g).
 2) Pass min_b and min_g as arguments to SIR.m. For example, if min_b = 0.1 and min_g = 0.03, then you would call 'SIR(0.1, 0.03);' in the command window.
 
+## Result
+See [report](https://github.com/wendyhwl/COVID19-Prediction/blob/main/report.pdf)
+
 ## Additional Info
 - If a country name is passed as a third argument to SIR, the model will show the actual data for that country and attempt to run the SIR model with the given 
 beta and gamma values. However, findMinCost is only set up to find the best beta and gamma values for the global data, therefore we do not have the optimal
