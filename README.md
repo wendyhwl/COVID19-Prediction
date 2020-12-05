@@ -2,6 +2,11 @@
 
 Creating estimated numbers of the currently infected, susceptible and recovered cases of COVID-19 using a mathematical epidemic prediction model called the SIR model
 
+## Table of Contents
+- [Setup](#Setup)
+- [Result](#Result)
+- [Additional Info](#Additional-Info)
+
 ## Setup
 ### Steps for running the code
 1) Run findMinCost.m to produce the best beta and gamma values for the global data (min_b and min_g).
