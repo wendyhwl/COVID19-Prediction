@@ -4,7 +4,7 @@ Creating estimated numbers of the currently infected, susceptible and recovered 
 
 ## Table of Contents
 - [Setup](#Setup)
-- [SIR Model](SIR-Model)
+- [Model and Data](#Model-and-Data)
 - [Result](#Result)
 - [Additional Info](#Additional-Info)
 - [Contributors](#Contributors)
@@ -14,18 +14,23 @@ Creating estimated numbers of the currently infected, susceptible and recovered 
 1) Run findMinCost.m to produce the best beta and gamma values for the global data (min_b and min_g).
 2) Pass min_b and min_g as arguments to SIR.m. For example, if min_b = 0.1 and min_g = 0.03, then you would call 'SIR(0.1, 0.03);' in the command window.
 
-## SIR Model
+## Model and Data
+### SIR Model
 The SIR model is a predictive model for infectious diseases that generates proportions of susceptible, infected, and recovered (or dead) populations given initial parameters. By using data collected on COVID-19, this model can be used to predict the number of people infected with the disease, and to approximate when to expect the peak and end of the pandemic.
 
-There are many examples of SIR models for general use (without sample data) as well
-as for specific viruses such as COVID-19. One such model that exists for COVID-19
-is the fitVirusCV19v3 (COVID-19 SIR Model) [1] for MATLAB, which retrieves the
-latest data, estimates the initial parameters using this data, and then uses both the data
-and initial parameters to form the SIR model. Other models have focused on specific
-countries, such as the COVID-19 data with SIR model on Italy and Japan. This 
-model divides the data into “phases” based on measures that were taken by the countries’ governments and tweaks the parameters for each phase. 
+There are many examples of SIR models for general use (without sample data) as well as for specific viruses such as COVID-19. One such model that exists for COVID-19 is the fitVirusCV19v3 (COVID-19 SIR Model) for MATLAB, which retrieves the latest data, estimates the initial parameters using this data, and then uses both the data and initial parameters to form the SIR model. This model divides the data into “phases” based on measures that were taken by the countries’ governments and tweaks the parameters for each phase. 
 
-###
+### Dataset
+The data used for this model was collected from Novel Coronavirus (COVID-19) Cases Data. Specifically, the following spreadsheets were used to obtain the number of confirmed and recovered cases, as well as the number of deaths.
+
+- [time_series_covid19_confirmed_global.csv](https://github.com/wendyhwl/COVID19-Prediction/blob/main/covid_confirmed.csv)
+- [time_series_covid19_recovered_global.csv](https://github.com/wendyhwl/COVID19-Prediction/blob/main/covid_recovered.csv)
+- [time_series_covid19_deaths_global.csv](https://github.com/wendyhwl/COVID19-Prediction/blob/main/covid_deaths.csv)
+
+This data was truncated to provide an exact time range for the prediction. This time range spanned from March 10th, 2020 to April 13th, 2020.
+
+### Additional Materials
+The SIR model was created using MATLAB. The above data was also altered within the script for the model. The global population number used in this model was taken from fitVirusCOVID19. 
 
 ## Result
 After creating the SIR model in MATLAB, we attempted to create projections by calculating the rates of infection and recovery and deriving the parameters from these rates. The resulting projections were not accurate enough, therefore we looked to create an optimization function that would provide us with more accurate parameters.
